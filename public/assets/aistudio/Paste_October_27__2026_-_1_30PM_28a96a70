@@ -1,0 +1,851 @@
+PROJECT: KHAWLA — A PERSONAL, LIGHTWEIGHT ANDROID STUDY COMPANION
+
+Act as a senior Android application engineer, Flutter developer, UI/UX designer, and performance optimization specialist.
+
+Build a complete, functional, polished Android study-planning application named "خولة" (Khawla). This is a personal study companion designed around flexibility, simplicity, and a charming illustrated assistant character named Omar (عُمر).
+
+This must be a real, usable application, not merely a visual prototype. All major screens, navigation, buttons, forms, study tools, data persistence, localization, and settings must work.
+
+Do not stop after generating a homepage or mockup. Build the application incrementally, verify the functionality, fix errors, and prepare the project so it can be exported, built, and installed as an Android APK.
+
+1. CORE PRODUCT VISION
+
+Create a calm, cute, elegant, premium-feeling study companion for a female student in an MPSI preparatory program in Morocco (Mathematics, Physics, and Engineering Sciences).
+
+The app should help her:
+
+- Organize subjects, chapters, lessons, and study tasks.
+- Track homework, assignments, and exam dates.
+- Save notes, formulas, reference materials, and mistakes.
+- Review information using flashcards and spaced repetition.
+- Track borrowed books and return dates.
+- Plan realistic study sessions without rigid schedules.
+- Find a manageable next step when she feels overwhelmed.
+- Receive contextual help from Omar, the illustrated in-app assistant.
+
+The user prefers flexible organization rather than strict timetables. The app must never shame her for missed tasks or incomplete goals.
+
+The experience should feel like a gentle personal companion, not a productivity system that constantly judges the user.
+
+2. TECHNICAL REQUIREMENTS
+
+Preferred stack:
+
+- Flutter and Dart for the Android application.
+- SQLite using a reliable Flutter-compatible database package for structured local data.
+- Local persistent preferences for theme, language, onboarding state, and interface settings.
+- Local notifications for reminders, where supported and properly configured.
+- Local file handling for attachments and backup files.
+
+If the current Google AI Studio environment cannot generate or build Flutter directly, explain the limitation briefly and use the most practical exportable Android-compatible workflow available. Do not silently replace the requested native Android app with a hosted website or PWA.
+
+Requirements:
+
+- Offline-first architecture.
+- No account registration required.
+- No backend required for core functionality.
+- No AI API calls required during normal app usage.
+- No analytics or unnecessary background services.
+- No unnecessary network requests.
+- All essential data stored locally.
+- Export and import backups through files.
+- Handle empty states, validation, errors, and confirmation dialogs properly.
+- Keep the code modular, readable, and maintainable.
+
+Never use fake functionality, placeholder buttons, or hardcoded sample data as a substitute for real features. Initial demonstration content is acceptable only if it can be removed and replaced with real user data.
+
+3. PERFORMANCE IS A TOP PRIORITY
+
+The app must feel fast and lightweight on ordinary Android phones.
+
+Performance requirements:
+
+- Target smooth 60 FPS interactions on capable 60 Hz devices.
+- Avoid heavy animations, excessive shadows, blur effects, and expensive glassmorphism.
+- Use lightweight 2D illustrations rather than 3D characters.
+- Keep screen transitions short and smooth.
+- Avoid rebuilding the entire application when a small component changes.
+- Use lazy lists for long collections.
+- Paginate or load large collections efficiently where necessary.
+- Generate image thumbnails for large attachments when practical.
+- Load PDFs and large files only when requested.
+- Avoid loading all application data into memory unnecessarily.
+- Avoid memory leaks and dispose of controllers, timers, and animation resources correctly.
+- Avoid large third-party dependencies when a simple native implementation is sufficient.
+- Use vector assets where appropriate and optimized WebP or PNG assets for illustrations.
+- Keep the app usable on low-to-mid-range Android hardware.
+- Do not keep animations running in the background unnecessarily.
+- Respect Android system insets, navigation bars, and keyboard behavior.
+- Never block the main UI thread with expensive operations.
+
+Prefer simple, efficient implementations over flashy features that make the app slower.
+
+4. VISUAL IDENTITY
+
+Create an elegant, soft, cute, polished interface with a consistent design system.
+
+Primary palette:
+
+- Soft lavender: #B9A3E8
+- Deep lavender: #8066B5
+- Warm cream: #FFF9F1
+- Pale pink: #F4DCE7
+- Soft white: #FFFFFF
+- Main text: #322B3B
+- Muted text: #81788A
+- Gentle success and warning colors with accessible contrast.
+
+Dark theme:
+
+- Deep plum and charcoal backgrounds.
+- Soft lavender accents.
+- Warm, readable text.
+- Comfortable contrast without pure black everywhere.
+
+Design characteristics:
+
+- Rounded cards and controls.
+- Generous but efficient spacing.
+- Clear typography.
+- Subtle borders and restrained shadows.
+- Small, purposeful animations.
+- Beautiful empty states.
+- Simple icons with consistent visual weight.
+- Elegant Arabic typography.
+- A clean French interface with appropriate typography.
+- No excessive gradients, neon colors, clutter, or oversized decorative graphics.
+
+The app should feel premium without being visually heavy.
+
+Do not place a large character illustration on every screen. Omar should be charming but unobtrusive.
+
+5. COMPLETE ARABIC AND FRENCH LOCALIZATION
+
+Support two complete interface languages:
+
+1. Arabic.
+2. French.
+
+Arabic requirements:
+
+- Correct right-to-left layout.
+- Proper alignment, navigation order, icons where directional, and text direction.
+- Correct Arabic typography.
+- No broken Arabic shaping or disconnected letters.
+- No mixed-direction layout bugs.
+
+French requirements:
+
+- Correct left-to-right layout.
+- Natural, consistent French translations.
+- Correct date, number, and text formatting.
+
+Requirements:
+
+- Language selection during onboarding and in settings.
+- The language can be changed at any time.
+- The entire interface, including navigation, dialogs, validation, notifications, help content, onboarding, empty states, and Omar's explanations, must change language.
+- Do not translate only the main screens while leaving other interface elements in English.
+- Store language preference persistently.
+- If no preference exists, use the device language when supported, otherwise default to French.
+- Keep interface translations in structured localization resources rather than scattering text literals throughout the code.
+
+The product name remains "خولة" where appropriate, while the interface should adapt naturally to each language.
+
+6. THEMES
+
+Implement:
+
+- Light theme.
+- Dark theme.
+- Follow system theme.
+
+Persist the user's selection.
+
+Switch themes without requiring an application restart.
+
+Ensure every screen, dialog, chart, input, popup, and navigation component supports both themes.
+
+7. MAIN NAVIGATION AND HOME DASHBOARD
+
+Create a clear, lightweight main navigation structure with approximately five primary destinations:
+
+1. Home / Accueil / الرئيسية.
+2. Subjects / Matières / المواد.
+3. Tasks / Tâches / المهام.
+4. Review / Révision / المراجعة.
+5. Library / Bibliothèque / المكتبة.
+
+Use a simple bottom navigation bar on phones. Secondary features should be accessible through contextual links, the home screen, or a lightweight menu.
+
+Do not overcrowd the bottom navigation.
+
+Home dashboard
+
+Display:
+
+- A friendly greeting.
+- Today's date.
+- A compact overview of today's priorities.
+- Upcoming exams and deadlines.
+- Tasks due soon.
+- Flashcards due for review.
+- A small progress summary.
+- A quick-add action.
+- A prominent but calm "Help me get started" rescue action.
+- Omar's small floating assistant character.
+
+Allow the dashboard to adapt to the user's actual data. Empty states should guide her to add her first subject or task without showing meaningless statistics.
+
+Provide a quick-add menu for:
+
+- Task.
+- Subject.
+- Note.
+- Flashcard.
+- Exam.
+
+Do not require the user to fill in unnecessary fields before she can save an item.
+
+8. FLEXIBLE STUDY PLANNING
+
+The app must accommodate irregular study habits.
+
+Include three quick modes:
+
+A. "Je suis organisée" / "أنا مرتبة اليوم"
+
+- Show planned tasks and priorities.
+- Allow the user to select a realistic number of tasks.
+- Offer optional time estimates.
+
+B. "J'ai beaucoup à faire" / "عندي شغل كثير"
+
+- Show overdue and upcoming work.
+- Help the user choose the most urgent or important tasks.
+- Break large tasks into smaller steps.
+- Avoid overwhelming her with a giant list.
+
+C. "Je n'ai pas envie d'étudier" / "ما لي نفس أدرس"
+
+- Offer a very small first step.
+- Suggest a 5-minute starting session.
+- Allow her to choose a low-effort task.
+- Encourage without guilt or pressure.
+
+Rescue mode
+
+Provide a "Help me get started" feature.
+
+Ask only for useful information:
+
+- Available time: 5, 15, 30, or 60 minutes.
+- Optional subject.
+- Optional energy level.
+
+Then generate a simple plan using transparent, local rules based on:
+
+- Deadline urgency.
+- Task importance.
+- Estimated duration.
+- Whether the task is overdue.
+- The user's chosen subject and available time.
+
+Do not use AI to generate this plan.
+
+Always allow the user to edit, replace, or dismiss suggestions. Never automatically delete or reschedule her tasks.
+
+9. SUBJECTS AND COURSES
+
+Create a complete subject management system.
+
+Each subject should support:
+
+- Name in Arabic or French.
+- Optional color and icon.
+- Optional course code.
+- Chapters.
+- Lessons.
+- Personal notes.
+- Formula collections.
+- Linked flashcards.
+- Exercises and references.
+- Linked assignments and exams.
+- Progress status.
+
+Allow the student to add, edit, reorder, archive, and delete subjects.
+
+Provide optional starter suggestions relevant to an MPSI curriculum, such as:
+
+- Mathematics.
+- Physics.
+- Engineering Sciences.
+- Computer Science.
+- Chemistry or other subjects when relevant.
+
+These are suggestions only. The user must be able to customize the actual subjects in her program.
+
+Do not assume that every MPSI institution uses the same course structure.
+
+Chapters and lessons
+
+Each chapter can contain:
+
+- Title.
+- Short description.
+- Lessons.
+- Personal notes.
+- Formulas.
+- Linked exercises.
+- Reference attachments.
+- Understanding status: Not started, Learning, Understood, Needs review.
+
+Show progress simply and accurately. Allow manual status changes.
+
+Do not require a chapter to be marked complete merely because all its tasks are checked.
+
+10. NOTES AND STUDY LIBRARY
+
+Implement a practical personal notebook.
+
+Support:
+
+- Text notes.
+- Titles and optional tags.
+- Subject and chapter links.
+- Editable content.
+- Search.
+- Creation and modification dates.
+- Optional attachments and photographs of handwritten notes.
+- Optional links to external references.
+- PDF and image attachments where technically supported.
+
+Do not attempt to implement a full document editor if a lightweight note editor is sufficient.
+
+Borrowed book tracker
+
+Provide a dedicated borrowed-book section.
+
+Each entry supports:
+
+- Book title.
+- Subject.
+- Borrowed date.
+- Optional return date.
+- Optional note.
+- Return status.
+
+Show approaching return dates and overdue books clearly.
+
+Allow the user to mark books as returned, edit records, and delete entries.
+
+Notifications must be optional and require the necessary Android permissions.
+
+11. FLASHCARDS AND SPACED REPETITION
+
+Implement a fully functional offline flashcard system.
+
+Each flashcard contains:
+
+- Question or prompt.
+- Answer.
+- Optional subject and chapter.
+- Optional tags.
+- Creation date.
+- Next review date.
+- Review history.
+- A simple repetition interval or scheduling state.
+
+The user can create, edit, delete, search, and organize cards into decks.
+
+Review experience
+
+Display the question first.
+
+Allow the user to reveal the answer.
+
+Then offer three review choices:
+
+- "Forgot" / "نسيتها".
+- "Difficult" / "بصعوبة".
+- "Easy" / "بسهولة".
+
+Implement a simple, deterministic spaced-repetition algorithm.
+
+Example starting rules:
+
+- Forgot: schedule another review after a short interval, such as 10 minutes.
+- Difficult: schedule the next review after approximately one day.
+- Easy: schedule the next review after approximately three days.
+
+These are initial configurable rules, not universal scientific constants. The implementation should update the review interval and next review date consistently based on previous reviews.
+
+Additional requirements:
+
+- Show cards due today.
+- Show overdue cards.
+- Allow filtering by subject.
+- Track review history.
+- Allow manual review and editing of scheduling information.
+- Use local dates carefully and handle date changes correctly.
+- Do not show the same card endlessly during a single session without a clear reason.
+
+The app must not require AI to create or review flashcards. Users create the content themselves.
+
+If practical, provide a simple way to duplicate a card or create a card from an existing formula or note. Do not claim automatic PDF understanding unless it is genuinely implemented.
+
+12. FORMULAS, DEFINITIONS, AND MISTAKE LOG
+
+Formula collection
+
+Allow the user to save:
+
+- Formula name.
+- Mathematical expression.
+- Plain-text explanation.
+- Example.
+- Subject and chapter.
+- Optional tags.
+
+Use a suitable mathematical rendering library only if it is reliable and lightweight. Otherwise provide a readable text input for formulas.
+
+Allow a formula to be converted into a flashcard with one action.
+
+Mistake log
+
+Each entry supports:
+
+- Problem or exercise title.
+- Text description.
+- Optional photo of the exercise or solution.
+- Subject and chapter.
+- Mistake category:
+  - Forgot a formula.
+  - Calculation error.
+  - Misunderstood the concept.
+  - Did not know how to start.
+  - Other.
+- Personal correction or lesson learned.
+- Review status.
+- Creation date.
+
+Allow linking a mistake to a formula, note, lesson, or flashcard.
+
+Provide a dedicated list of mistakes needing review.
+
+Do not attempt to automatically judge whether a mathematical solution is correct. This is a local organizational tool, not an AI tutor.
+
+13. EXAMS, ASSIGNMENTS, AND DEADLINES
+
+Implement:
+
+- Exams.
+- Homework.
+- Assignments.
+- Projects.
+- Personal deadlines.
+
+Each item supports:
+
+- Title.
+- Subject.
+- Deadline.
+- Importance.
+- Estimated effort.
+- Completion status.
+- Notes.
+- Optional links to chapters, formulas, or flashcards.
+
+Provide sorting and filtering by date, subject, priority, and status.
+
+Pre-exam mode
+
+Create a dedicated "Exam preparation" screen.
+
+When the user selects an exam, show:
+
+- Related chapters.
+- Related formulas.
+- Relevant flashcards.
+- Linked mistakes.
+- Unfinished assignments.
+- A checklist of revision topics.
+
+Allow the user to select topics she wants to review.
+
+Provide a suggested plan based on the remaining time and the user's selections, using simple deterministic rules.
+
+Do not invent subject content or automatically generate questions.
+
+14. FOCUS TIMER AND PROGRESS
+
+Implement a lightweight focus timer with:
+
+- 25-minute focus session by default.
+- 5-minute short break.
+- Optional longer break after several sessions.
+- Editable durations.
+- Start, pause, resume, and reset controls.
+- Optional association with a subject or task.
+- Session history.
+
+Avoid aggressive notifications, sounds, or animations.
+
+Allow sound and vibration to be disabled.
+
+If the app is backgrounded, handle timer state reliably. Do not keep an unnecessary continuously running animation or service.
+
+Progress
+
+Show useful, simple statistics:
+
+- Tasks completed.
+- Study sessions completed.
+- Flashcards reviewed.
+- Chapters marked understood.
+- Upcoming priorities.
+
+Avoid misleading scores or competitive leaderboards.
+
+Do not punish missed goals. The student should be able to restart at any time.
+
+15. OMAR: THE ILLUSTRATED IN-APP ASSISTANT
+
+Omar is a central part of the app's personality, but he must never become intrusive.
+
+Character design
+
+Create a consistent 2D chibi anime boy character:
+
+- Voluminous black curly hair.
+- Brown eyes.
+- Skin tone matching the supplied character reference, if provided.
+- Very subtle moustache and a small chin beard.
+- Black oversized hoodie with lavender accents.
+- Large head, small body, expressive face.
+- Soft, polished illustration style.
+- Friendly, calm, playful, and reassuring appearance.
+
+Maintain the same face, hairstyle, clothing, colors, and proportions across every pose.
+
+Do not generate a different-looking character on every screen.
+
+Prefer a small, optimized set of reusable illustrations:
+
+- Welcome.
+- Idle.
+- Thinking.
+- Explaining.
+- Pointing.
+- Celebrating.
+- Encouraging.
+- Waving.
+
+If image generation is available, generate or use the reference character consistently. Export illustrations as transparent-background PNG or optimized WebP assets.
+
+If image generation is unavailable, create a clean placeholder asset structure and explain how the illustrations can be replaced later. Do not block the entire application waiting for artwork.
+
+First-launch onboarding
+
+On the first launch, show a short, friendly onboarding sequence featuring Omar.
+
+Screen 1: Welcome.
+Omar introduces the app and explains that the student can organize her studies at her own pace.
+
+Screen 2: What the app can do.
+Briefly introduce subjects, tasks, notes, flashcards, exams, and the library.
+
+Screen 3: Personalize.
+Choose Arabic or French, choose light, dark, or system theme, and optionally add the first subject.
+
+Final action: "Let's start" / "لنبدأ".
+
+Requirements:
+
+- Next and Previous buttons.
+- Skip button.
+- Short, concise explanations.
+- No lengthy walls of text.
+- Save onboarding completion locally.
+- Show onboarding only on the first launch.
+- Provide a setting to restart the tutorial at any time.
+
+Omar's persistent floating assistant
+
+After onboarding, Omar should shrink into a small floating 2D character near a screen corner.
+
+Important behavior:
+
+- Keep him visible on main screens, unless the user disables him.
+- Do not cover important controls, text, navigation, or input fields.
+- Respect screen insets and the software keyboard.
+- Use a consistent corner position.
+- Keep the character small and lightweight.
+- Avoid constant movement or distracting animations.
+- A subtle idle pose is sufficient.
+- Avoid automatically opening help dialogs.
+
+When the user taps Omar, open a small, elegant help panel or bottom sheet.
+
+The panel should offer contextual actions:
+
+- "Explain this screen."
+- "How does this feature work?"
+- "Where can I find something?"
+- "Open the help guide."
+- "Hide Omar temporarily."
+
+Omar's help must depend on the current screen. For example, on the flashcard screen, explain how to review cards; on the subjects screen, explain how to organize courses.
+
+Implement contextual help using predefined, localized text and deterministic navigation rules. The current screen identifier should select the relevant explanation.
+
+This is NOT an AI chatbot.
+
+Do not call an AI API, send personal study data to a server, or pretend Omar understands free-form questions.
+
+Omar may display brief contextual tips and predefined responses in both Arabic and French.
+
+Allow the user to disable or re-enable Omar in settings.
+
+Optional encouragement
+
+Use a small library of predefined encouraging messages.
+
+Show them sparingly, such as after finishing a study session or when opening rescue mode.
+
+Never interrupt an active study session with unsolicited dialogue.
+
+Avoid guilt, shame, romantic pressure, or manipulative messaging.
+
+16. SEARCH AND QUICK ACCESS
+
+Implement a lightweight global search across:
+
+- Subjects.
+- Chapters.
+- Lessons.
+- Notes.
+- Flashcards.
+- Formulas.
+- Mistake records.
+- Tasks.
+- Borrowed books.
+
+Provide useful filters and clear empty states.
+
+Search should operate locally and return results quickly.
+
+Use appropriate database indexing when needed. Do not load every attachment merely to search titles and text.
+
+17. REMINDERS AND NOTIFICATIONS
+
+Provide optional local reminders for:
+
+- Upcoming exams.
+- Task deadlines.
+- Book return dates.
+- Flashcard review sessions, if enabled.
+
+Requirements:
+
+- Ask for notification permission only when appropriate.
+- Respect Android notification restrictions.
+- Allow reminders to be enabled or disabled individually.
+- Avoid repeated or excessive notifications.
+- Do not promise exact alarm behavior unless the implementation and permissions support it.
+- Continue to function normally if notifications are denied.
+
+18. BACKUP, RESTORE, AND DATA PRIVACY
+
+All essential study data must remain on the device by default.
+
+Implement:
+
+- Export a backup file.
+- Import a backup file.
+- Validate backup format before restoring.
+- Warn before replacing or merging existing data.
+- Handle invalid or incompatible backups gracefully.
+- Include supported records and settings in the backup.
+- Do not silently overwrite data.
+
+Do not upload the user's notes, schedule, or study history to a server.
+
+Store attachment references safely and ensure that backups can preserve or clearly account for associated files.
+
+No account, subscription, or paid API should be necessary for core features.
+
+19. SETTINGS AND PERSONALIZATION
+
+Provide settings for:
+
+- Arabic/French language.
+- Light/dark/system theme.
+- Omar visibility.
+- Optional notification preferences.
+- Focus timer durations.
+- Backup and restore.
+- Restart onboarding.
+- Data management.
+- App information and version.
+
+Use confirmation dialogs for destructive actions.
+
+Allow the user to delete individual records and clear all app data deliberately.
+
+20. DATA MODEL AND RELATIONSHIPS
+
+Design a sensible local database schema with relationships for:
+
+- Subjects.
+- Chapters.
+- Lessons.
+- Tasks.
+- Exams and assignments.
+- Notes.
+- Attachments.
+- Flashcards and decks.
+- Flashcard review history.
+- Formulas.
+- Mistake records.
+- Borrowed books.
+- Focus sessions.
+- App preferences.
+
+Use stable identifiers and proper database migrations.
+
+Prevent accidental duplicate records where appropriate.
+
+Validate required fields and maintain data integrity when a subject or chapter is edited or deleted.
+
+Do not delete related data unexpectedly. Provide sensible options when deleting a parent record that has linked content.
+
+Keep business logic separate from widgets and UI code.
+
+21. ACCESSIBILITY AND USABILITY
+
+- Make touch targets comfortably sized.
+- Use readable text sizes.
+- Maintain sufficient color contrast.
+- Support Android font scaling where practical.
+- Avoid relying on color alone to communicate status.
+- Ensure Arabic and French layouts remain usable at larger text sizes.
+- Provide meaningful labels for accessibility.
+- Make important actions easy to reach with one hand.
+- Keep forms short.
+- Make optional fields genuinely optional.
+- Provide undo or confirmation where appropriate for destructive actions.
+- Preserve form state if the user temporarily leaves a screen when practical.
+
+22. TESTING AND QUALITY CONTROL
+
+Test the following before considering the application complete:
+
+1. First-launch onboarding and skipping.
+2. Language switching between Arabic and French.
+3. Correct RTL/LTR behavior.
+4. Light, dark, and system themes.
+5. Creating, editing, and deleting subjects.
+6. Creating tasks and deadlines.
+7. Creating notes and attaching supported files.
+8. Creating and reviewing flashcards.
+9. Correctly updating flashcard review dates.
+10. Saving formulas and mistake records.
+11. Creating exams and opening pre-exam mode.
+12. Running and pausing the focus timer.
+13. Tracking borrowed books.
+14. Opening Omar's contextual help on different screens.
+15. Hiding and restoring Omar.
+16. Exporting and importing backups.
+17. Persistence after closing and reopening the app.
+18. Behavior without an internet connection.
+19. Empty states and invalid form submissions.
+20. Small-screen layouts, keyboard behavior, and performance.
+
+Fix compile errors, broken navigation, incorrect localization, and obvious performance problems.
+
+Do not claim tests passed unless they were actually run.
+
+23. IMPLEMENTATION STRATEGY
+
+Build the project in coherent stages, while maintaining a runnable application.
+
+Stage 1:
+
+- App foundation.
+- Design system.
+- Localization.
+- Theme support.
+- Main navigation.
+- Home dashboard.
+- Subjects, chapters, tasks, and local persistence.
+
+Stage 2:
+
+- Notes and library.
+- Borrowed books.
+- Exams and assignments.
+- Global search.
+- Backup and restore.
+
+Stage 3:
+
+- Flashcards.
+- Spaced repetition.
+- Formula collection.
+- Mistake log.
+- Pre-exam mode.
+
+Stage 4:
+
+- Focus timer.
+- Omar's onboarding.
+- Contextual help.
+- Character assets and lightweight animations.
+- Optional encouragement.
+
+Stage 5:
+
+- Notifications.
+- Accessibility review.
+- Performance optimization.
+- Functional testing.
+- Android build and APK export instructions.
+
+After each stage, verify that existing functionality still works.
+
+If the environment has output or context limits, implement the foundation and first stage properly, then continue with the remaining stages in subsequent iterations. Do not generate a massive unverified code dump that cannot compile.
+
+24. FINAL DELIVERABLES
+
+Provide:
+
+- The complete source project.
+- A clear project directory structure.
+- All necessary configuration files.
+- A list of dependencies and their purpose.
+- Instructions to run and test the app.
+- Instructions to build and export an installable Android APK.
+- A summary of implemented features.
+- A clear list of any features not yet implemented.
+- Any required manual steps for adding or replacing Omar's character illustrations.
+
+If the environment supports building the APK directly, build it and verify that the output file exists. Otherwise, provide accurate local build instructions.
+
+Do not claim that an APK has been generated unless it actually exists.
+
+FINAL PRIORITY ORDER
+
+If trade-offs are necessary, prioritize in this order:
+
+1. Reliability and data safety.
+2. Smooth performance and low memory usage.
+3. Fully working core study features.
+4. Correct Arabic/French localization and RTL/LTR behavior.
+5. Elegant, coherent visual design.
+6. Omar's onboarding and contextual help.
+7. Optional polish and animations.
+
+The final result should feel like a thoughtfully designed, personal study companion: calm, useful, charming, private, and lightweight.
+
+Start by inspecting the available development environment, choosing the most appropriate exportable Android implementation, and building the runnable foundation. Then proceed through the stages above without sacrificing performance or functionality.

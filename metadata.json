@@ -1,0 +1,6 @@
+{
+  "name": "خولة",
+  "description": "رفيقك في رحلة النجاح - A calm, cute, and elegant personal study companion for MPSI students featuring Omar the assistant",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
