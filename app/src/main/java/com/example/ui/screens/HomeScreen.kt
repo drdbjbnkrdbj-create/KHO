@@ -636,7 +636,7 @@ fun RescueModeModal(
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.img_omar_sticker_heart),
+                            painter = painterResource(id = R.drawable.img_omar_sticker_encourage),
                             contentDescription = "Omar",
                             modifier = Modifier
                                 .size(44.dp)

@@ -145,7 +145,7 @@ fun OnboardingStep1(language: AppLanguage) {
         modifier = Modifier.fillMaxWidth()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.img_omar_full),
+            painter = painterResource(id = R.drawable.img_omar_welcome),
             contentDescription = "Omar",
             modifier = Modifier
                 .height(260.dp)
@@ -254,7 +254,7 @@ fun OnboardingStep3(
         modifier = Modifier.fillMaxWidth()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.img_omar_sticker_heart),
+            painter = painterResource(id = R.drawable.img_omar_sticker_encourage),
             contentDescription = "Omar Heart",
             modifier = Modifier
                 .size(120.dp)
