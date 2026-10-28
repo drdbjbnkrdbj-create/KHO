@@ -163,10 +163,10 @@ fun HomeScreen(
         }
 
         // Active Mood Mode banner if chosen
-        if (activeMoodMode != null) {
+        activeMoodMode?.let { mode ->
             item {
                 MoodBanner(
-                    mode = activeMoodMode!!,
+                    mode = mode,
                     language = language,
                     onOpenRescue = { viewModel.setRescueDialogOpen(true) },
                     onStartFocus = { viewModel.navigateTo(5) }
@@ -283,7 +283,7 @@ fun HomeScreen(
                 )
             }
         } else {
-            items(displayedTasks, key = { it.id }) { task ->
+            items(displayedTasks, key = { "task-${it.id}" }) { task ->
                 val subject = subjects.find { it.id == task.subjectId }
                 TaskItemRow(
                     task = task,
@@ -304,7 +304,7 @@ fun HomeScreen(
                     onActionClick = { viewModel.navigateTo(4) }
                 )
             }
-            items(upcomingExams, key = { it.id }) { exam ->
+            items(upcomingExams, key = { "exam-${it.id}" }) { exam ->
                 val subject = subjects.find { it.id == exam.subjectId }
                 ExamCardRow(exam = exam, subject = subject, language = language)
             }
