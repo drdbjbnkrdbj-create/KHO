@@ -508,7 +508,7 @@ fun PreExamTabContent(
                 )
             }
 
-            items(relevantChapters, key = { it.id }) { ch ->
+            items(relevantChapters, key = { "chapter-${it.id}" }) { ch ->
                 val (stText, stCol) = when (ch.status) {
                     2 -> Pair(S.get("status_understood", language), GentleSuccess)
                     1 -> Pair(S.get("status_learning", language), GentleWarning)
@@ -548,7 +548,7 @@ fun PreExamTabContent(
                         fontWeight = FontWeight.Bold
                     )
                 }
-                items(relevantFormulas, key = { it.id }) { f ->
+                items(relevantFormulas, key = { "formula-${it.id}" }) { f ->
                     Card(
                         shape = RoundedCornerShape(12.dp),
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
@@ -571,7 +571,7 @@ fun PreExamTabContent(
                         fontWeight = FontWeight.Bold
                     )
                 }
-                items(relevantMistakes, key = { it.id }) { m ->
+                items(relevantMistakes, key = { "mistake-${it.id}" }) { m ->
                     Card(
                         shape = RoundedCornerShape(12.dp),
                         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),

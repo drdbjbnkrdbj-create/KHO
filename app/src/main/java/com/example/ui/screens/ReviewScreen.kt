@@ -420,7 +420,7 @@ fun FormulasTabContent(
             }
         }
 
-        if (convertedFeedback != null) {
+        convertedFeedback?.let { feedback ->
             item {
                 Surface(
                     shape = RoundedCornerShape(12.dp),
@@ -428,7 +428,7 @@ fun FormulasTabContent(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        text = convertedFeedback!!,
+                        text = feedback,
                         style = MaterialTheme.typography.labelMedium,
                         color = GentleSuccess,
                         modifier = Modifier.padding(12.dp),
