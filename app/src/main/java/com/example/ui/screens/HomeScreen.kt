@@ -110,11 +110,12 @@ fun HomeScreen(
                         )
                     }
                     Image(
-                        painter = painterResource(id = R.drawable.img_omar_sticker_welcome),
+                        painter = painterResource(id = R.drawable.img_omar_smile_transparent),
                         contentDescription = "Omar",
                         modifier = Modifier
                             .size(76.dp)
-                            .clip(RoundedCornerShape(12.dp))
+                            .clip(RoundedCornerShape(12.dp)),
+                        contentScale = ContentScale.Fit
                     )
                 }
             }
@@ -192,11 +193,11 @@ fun HomeScreen(
                     horizontalArrangement = Arrangement.spacedBy(14.dp)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.img_omar_sticker_encourage),
+                        painter = painterResource(id = R.drawable.img_omar_smile_transparent),
                         contentDescription = "Omar encourage",
                         modifier = Modifier
-                            .size(60.dp)
-                            .clip(CircleShape)
+                            .size(60.dp),
+                        contentScale = ContentScale.Fit
                     )
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
@@ -636,11 +637,11 @@ fun RescueModeModal(
                         horizontalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         Image(
-                            painter = painterResource(id = R.drawable.img_omar_sticker_encourage),
+                            painter = painterResource(id = R.drawable.img_omar_smile_transparent),
                             contentDescription = "Omar",
                             modifier = Modifier
-                                .size(44.dp)
-                                .clip(CircleShape)
+                                .size(44.dp),
+                            contentScale = ContentScale.Fit
                         )
                         Text(
                             text = S.get("rescue_title", language),

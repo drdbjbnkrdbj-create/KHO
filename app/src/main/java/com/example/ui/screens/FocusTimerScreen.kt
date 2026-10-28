@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -214,11 +215,11 @@ fun FocusTimerScreen(
                     horizontalArrangement = Arrangement.spacedBy(14.dp)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.img_omar_cheering),
+                        painter = painterResource(id = R.drawable.img_omar_smile_transparent),
                         contentDescription = "Omar cheering",
                         modifier = Modifier
-                            .size(64.dp)
-                            .clip(CircleShape)
+                            .size(64.dp),
+                        contentScale = ContentScale.Fit
                     )
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
